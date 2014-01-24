@@ -1,0 +1,28 @@
+<div class="details pad" ng-controller="NotificationCtrl">
+    <p>
+      <h2 class="padbot"><p>Native Alert</p></h2>
+      <a class="topcoat-button--cta" ng-click="alertNotify()">Alert</a>
+      <input type="text" class="topcoat-text-input" ng-model="notification.alertTitle" placeholder="Alert title" style="margin-left: 10px; width:33%;">
+      <input type="text" class="topcoat-text-input" ng-model="notification.alertMessage" placeholder="Alert msg" style="width:33%;">
+    </p>
+    <hr>
+
+    <p>
+        <h2 class="padbot"><p>Native Confirmation Dialog</p></h2>
+        <a class="topcoat-button--cta" ng-click="confirmNotify()">Confirm</a>
+        <input type="text" class="topcoat-text-input" ng-model="notification.confirmationTitle" placeholder="Question title" style="margin-left: 10px;width:33%">
+        <input type="text" class="topcoat-text-input" ng-model="notification.confirmationMessage" placeholder="Confirmation msg" style="width:33%">
+    </p>
+    <hr>
+
+    <p>
+    <h2 class="padbot"><p>Play a Sound</p></h2>
+    <a class="topcoat-button--cta" ng-click="beepNotify()">Beep</a>
+    </p>
+    <hr>
+
+    <p>
+        <h2 class="padbot"><p>Vibrate your device</p></h2>
+        <a class="topcoat-button--cta" ng-click="vibrateNotify()">Vibrate</a>
+    </p>
+</div>

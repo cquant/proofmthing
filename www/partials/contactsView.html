@@ -1,0 +1,26 @@
+<div ng-controller="ContactsCtrl">
+    <form ng-submit="find()">
+        <div style="margin-top: 10px;" class="left" > <!-- style="float:left" -->
+            <div class="arow">
+                <div class='aitem'><h3>Contact Search:</h3></div>
+                <div class='aitem'> <input ng-model="searchTxt" type="text" value="" placeholder="search" class="topcoat-search-input"></p></div>
+            </div>
+        </div>
+    </form>
+
+    <div ng-show="contacts.length>0">
+        <p class="centerize">Number of contacts found: {{contacts.length}}</p>
+        <div class="topcoat-list__container list">
+            <ul class=topcoat-list>
+                <li ng-repeat="contact in contacts" class="topcoat-list__item">
+                    <p>
+                      <!-- {{contact}} <br> -->
+                      {{ contact.name.formatted }}
+                      <a href="tel://{{contact.phoneNumbers[0].value}}" style="float:right">{{ contact.phoneNumbers[0].value }}</a>
+                    </p>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

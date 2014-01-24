@@ -1,0 +1,8 @@
+.DS_Store
+.cordova/hooks
+.idea/
+build/*
+merges/*
+node_modules/*
+platforms/*
+plugins/*

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link href="topcoat/css/topcoat-mobile-dark.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- <link href="css/index_notused.css" rel="stylesheet"> -->
+
+    <script>
+        // Create a global devLog feature.  When Enabled, all devLog entries will be sent to the console.log.
+        window.DEVDEBUG = true;
+        function devLog(a, b, c, d) {
+            if (DEVDEBUG) {
+                console.log(a, b || '', c || '', d || '');
+                var debugArea=document.getElementById('debugAreaId');
+                if (debugArea) {
+                    debugArea.value += '\n' + a;
+                    if (debugArea.style.display != 'block') debugArea.style.display='block';
+                }
+            }
+        }
+        devLog('index.html Reporting DEVDEBUG('+DEVDEBUG+')');
+    </script>
+
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-touch.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script src="lib/angular-mobile.js"></script>
+    <script src="lib/mobile-nav.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/memory-services.js"></script>
+    <script src="js/rest-services.js"></script>
+
+</head>
+
+<body ng-controller="MainCtrl">
+
+    <div id="menuleft" ng-class="{hide:!showmenu, slide:showmenu}">
+        <h1>Menu</h1>
+        <ul id="menulist">
+            <li><a ng-click="menuGo('employees')"        >Employee Directory</a></li>
+            <li><a ng-click="menuGo('viewHackerNews2')"  >HackerNews Remote Server</a></li>
+            <li><a ng-click="menuGo('viewHackerNews4')"  >Reading Local File</a></li>
+            <li><a ng-click="menuGo('viewSendMessage')"  >Send Message Form</a></li>
+            <li><a ng-click="menuGo('viewNotification')" >Notification</a></li>
+            <li><a ng-click="menuGo('viewGeolocation')"  >Geolocation</a></li>
+            <li><a ng-click="menuGo('viewAcceleration')" >Acceleration</a></li>
+            <li><a ng-click="menuGo('viewDevice')"       >Device</a></li>
+            <li><a ng-click="menuGo('viewCamera')"       >Camera</a></li>
+            <li><a ng-click="menuGo('viewContacts')"     >Contacts</a></li>
+            <li><a ng-click="menuGo('viewCompass')"      >Compass</a></li>
+        </ul>
+    </div>
+
+    <div id="all" ng-class="{hide:showmenu, slide:!showmenu}">
+
+        <div class="overlay" ng-class="{show:showmenu}" ng-swipe-left="showmenu=false"></div>
+
+        <div class="topcoat-navigation-bar">
+            <div class="topcoat-navigation-bar__item left quarter">
+                <a class="topcoat-icon-button--quiet back-button"ng-click="toggleMenu()" >
+                    <span class="topcoat-icon topcoat-icon--menu-stack"></span>
+                </a>
+            </div>
+            <div class="topcoat-navigation-bar__item center half">
+                <h1 class="topcoat-navigation-bar__title">Thing {{ headerTitle }}</h1>
+            </div>
+            <!--
+            <div class="topcoat-navigation-bar__item right quarter" ng-show="headerShowBack">
+                <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+                    <span class="topcoat-icon topcoat-icon--back"></span>
+                </a>
+            </div>
+            -->
+        </div>
+
+        <div id="wrapper" ng-view ng-class="slide">
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        startingApp.initialize();
+    </script>
+</body>
+
+</html>
