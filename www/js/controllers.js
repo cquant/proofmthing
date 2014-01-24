@@ -42,16 +42,16 @@ myControllers.controller('MainCtrl', ['$scope', '$rootScope', '$window', '$locat
             $scope.headerShowBack = false;
             switch (path) {
                 case "employees":
-                    $scope.headerTitle = "- Employee Directory";
+                    $scope.headerTitle = "- EmpDirectory";
                     break;
                 case "viewHackerNews2":
-                    $scope.headerTitle = "- HackerNews Server";
+                    $scope.headerTitle = "- HackerNews";
                     break;
                 case "viewHackerNews4":
-                    $scope.headerTitle = "- Reading Local File";
+                    $scope.headerTitle = "- LocalFile";
                     break;
                 case "viewSendMessage":
-                    $scope.headerTitle = "- Send Message";
+                    $scope.headerTitle = "- SendMessage";
                     break;
                 case "viewNotification":
                     $scope.headerTitle = "- Notification";
